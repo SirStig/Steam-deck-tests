@@ -33,12 +33,12 @@ fose_setup() {
     fi
 }
 
-if [ -f "$FALLOUT3_INTERNAL Fallout3Launcher.exe" ]; then
+if [ -f "${FALLOUT3_INTERNAL}Fallout3Launcher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/fallout3/loadorder.txt ~/.local/share/Steam/steamapps/compatdata/22300/pfx/drive_c/users/steamuser/AppData/Local/fallout3/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/fallout3/plugins.txt ~/.local/share/Steam/steamapps/compatdata/22300/pfx/drive_c/users/steamuser/AppData/Local/fallout3/
 	fose_setup "$FALLOUT3_INTERNAL"
 	echo "Fallout 3 found in the Internal drive. Creating Symlinks and swapping launchers."
-elif [ -f "$FALLOUT3_EXTERNAL Fallout3Launcher.exe" ]; then
+elif [ -f "${FALLOUT3_EXTERNAL}Fallout3Launcher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/fallout3/loadorder.txt /run/media/mmcblk0p1/steamapps/compatdata/22300/pfx/drive_c/users/steamuser/AppData/Local/fallout3/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/fallout3/plugins.txt /run/media/mmcblk0p1/steamapps/compatdata/22300/pfx/drive_c/users/steamuser/AppData/Local/fallout3/
 	fose_setup "$FALLOUT3_EXTERNAL"
@@ -61,14 +61,14 @@ nvse_setup() {
     fi
 }
 
-if [ -f "$FALLOUTNV_INTERNAL FalloutNVLauncher.exe" ]; then
+if [ -f "${FALLOUTNV_INTERNAL}FalloutNVLauncher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/loadorder.txt ~/.local/share/Steam/steamapps/compatdata/22380/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/plugins.txt ~/.local/share/Steam/steamapps/compatdata/22380/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/
 	nvse_setup "$FALLOUTNV_INTERNAL"
 	ln -sf "$INIFILES_INTERNAL"/Fallout.ini "$INIFILES_VORTEX"/
     ln -sf "$INIFILES_INTERNAL"/FalloutPrefs.ini "$INIFILES_VORTEX"/
 	echo "Fallout NV found in the Internal drive. Creating Symlinks and swapping launchers."
-elif [ -f "$FALLOUTNV_EXTERNAL FalloutNVLauncher.exe"  ]; then
+elif [ -f "${FALLOUTNV_EXTERNAL}FalloutNVLauncher.exe"  ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/loadorder.txt /run/media/mmcblk0p1/steamapps/compatdata/22380/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/plugins.txt /run/media/mmcblk0p1/steamapps/compatdata/22380/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/
 	nvse_setup "$FALLOUTNV_EXTERNAL"
@@ -93,12 +93,12 @@ f4se_setup() {
     fi
 }
 
-if [ -f "$FALLOUT4_INTERNAL Fallout4Launcher.exe" ]; then
+if [ -f "${FALLOUT4_INTERNAL}Fallout4Launcher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/fallout4/loadorder.txt ~/.local/share/Steam/steamapps/compatdata/377160/pfx/drive_c/users/steamuser/AppData/Local/Fallout4/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/fallout4/plugins.txt ~/.local/share/Steam/steamapps/compatdata/377160/pfx/drive_c/users/steamuser/AppData/Local/Fallout4/
 	f4se_setup "$FALLOUT4_INTERNAL"
 	echo "Fallout 4 found in the Internal drive. Creating Symlinks and swapping launchers."
-elif [ -f "$FALLOUT4_EXTERNAL Fallout4Launcher.exe" ]; then
+elif [ -f "${FALLOUT4_EXTERNAL}Fallout4Launcher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/fallout4/loadorder.txt /run/media/mmcblk0p1/steamapps/compatdata/377160/pfx/drive_c/users/steamuser/AppData/Local/Fallout4/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/fallout4/plugins.txt /run/media/mmcblk0p1/steamapps/compatdata/377160/pfx/drive_c/users/steamuser/AppData/Local/Fallout4/
 	f4se_setup "$FALLOUT4_EXTERNAL"
@@ -121,12 +121,12 @@ obse_setup() {
     fi
 }
 
-if [ -f "$OBLIVION_INTERNAL OblivionLauncher.exe" ]; then
+if [ -f "${OBLIVION_INTERNAL}OblivionLauncher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Oblivion/loadorder.txt ~/.local/share/Steam/steamapps/compatdata/22330/pfx/drive_c/users/steamuser/AppData/Local/Oblivion/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Oblivion/plugins.txt ~/.local/share/Steam/steamapps/compatdata/22330/pfx/drive_c/users/steamuser/AppData/Local/Oblivion/
 	obse_setup "$OBLIVION_INTERNAL"
 	echo "Oblivion found in the Internal drive. Creating Symlinks and swapping launchers."
-elif [ -f "$OBLIVION_EXTERNAL OblivionLauncher.exe" ]; then
+elif [ -f "${OBLIVION_EXTERNAL}OblivionLauncher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Oblivion/loadorder.txt /run/media/mmcblk0p1/steamapps/compatdata/22330/pfx/drive_c/users/steamuser/AppData/Local/Oblivion/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Oblivion/plugins.txt /run/media/mmcblk0p1/steamapps/compatdata/22330/pfx/drive_c/users/steamuser/AppData/Local/Oblivion/
 	obse_setup "$OBLIVION_EXTERNAL"
@@ -149,12 +149,12 @@ skse_setup() {
     fi
 }
 
-if [ -f "$SKYRIM_INTERNAL SkyrimSELauncher.exe" ]; then
+if [ -f "${SKYRIM_INTERNAL}SkyrimSELauncher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Skyrim Special Edition/loadorder.txt ~/.local/share/Steam/steamapps/compatdata/489830/pfx/drive_c/users/steamuser/AppData/Local/Skyrim Special Edition/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Skyrim Special Edition/plugins.txt ~/.local/share/Steam/steamapps/compatdata/489830/pfx/drive_c/users/steamuser/AppData/Local/Skyrim Special Edition/
 	skse_setup "$SKYRIM_INTERNAL"
 	echo "Skyrim SE/AE in the Internal drive. Creating Symlinks and swapping launchers."
-elif [ -f "$SKYRIM_EXTERNAL SkyrimSELauncher.exe" ]; then
+elif [ -f "${SKYRIM_EXTERNAL}SkyrimSELauncher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Skyrim Special Edition/loadorder.txt /run/media/mmcblk0p1/steamapps/compatdata/489830/pfx/drive_c/users/steamuser/AppData/Local/Skyrim Special Edition/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Skyrim Special Edition/plugins.txt /run/media/mmcblk0p1/steamapps/compatdata/489830/pfx/drive_c/users/steamuser/AppData/Local/Skyrim Special Edition/
 	skse_setup "$SKYRIM_EXTERNAL"
@@ -177,12 +177,12 @@ oldrim_setup() {
     fi
 }
 
-if [ -f "$OLDRIM_INTERNAL SkyrimLauncher.exe" ]; then
+if [ -f "${OLDRIM_INTERNAL}SkyrimLauncher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Skyrim/loadorder.txt ~/.local/share/Steam/steamapps/compatdata/2028782/pfx/drive_c/users/steamuser/AppData/Local/Skyrim/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Skyrim/plugins.txt ~/.local/share/Steam/steamapps/compatdata/2028782/pfx/drive_c/users/steamuser/AppData/Local/Skyrim/
 	oldrim_setup "$OLDRIM_INTERNAL"
 	echo "Skyrim LE in the Internal drive. Creating Symlinks and swapping launchers."
-elif [ -f "$OLDRIM_EXTERNAL SkyrimLauncher.exe" ]; then
+elif [ -f "${OLDRIM_EXTERNAL}SkyrimLauncher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Skyrim/loadorder.txt /run/media/mmcblk0p1/steamapps/compatdata/2028782/pfx/drive_c/users/steamuser/AppData/Local/Skyrim/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/Skyrim/plugins.txt /run/media/mmcblk0p1/steamapps/compatdata/2028782/pfx/drive_c/users/steamuser/AppData/Local/Skyrim/
 	oldrim_setup "$OLDRIM_EXTERNAL"
