@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Categories=Game;Utility
+Name=Vortex
+MimeType=x-scheme-handler/nxm;x-scheme-handler/nxm-protocol
+Terminal=true
+X-KeepTerminal=false
+Path=/home/deck/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex
+Exec="/home/deck/.pikdum/steam-deck-master/vortex/vortex-linux" launchVortex -- -d %u
+Icon=/home/deck/.local/applications/vortex.ico
