@@ -65,15 +65,15 @@ if [ -f "${FALLOUTNV_INTERNAL}FalloutNVLauncher.exe" ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/loadorder.txt ~/.local/share/Steam/steamapps/compatdata/22380/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/plugins.txt ~/.local/share/Steam/steamapps/compatdata/22380/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/
 	nvse_setup "$FALLOUTNV_INTERNAL"
-	ln -sf "$INIFILES_INTERNAL"/Fallout.ini "$INIFILES_VORTEX"/
-    ln -sf "$INIFILES_INTERNAL"/FalloutPrefs.ini "$INIFILES_VORTEX"/
+	ln -sf "${INIFILES_INTERNAL}Fallout.ini" "$INIFILES_VORTEX"
+    ln -sf "${INIFILES_INTERNAL}FalloutPrefs.ini" "$INIFILES_VORTEX"
 	echo "Fallout NV found in the Internal drive. Creating Symlinks and swapping launchers."
 elif [ -f "${FALLOUTNV_EXTERNAL}FalloutNVLauncher.exe"  ]; then
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/loadorder.txt /run/media/mmcblk0p1/steamapps/compatdata/22380/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/
 	ln -sf ~/.vortex-linux/compatdata/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/plugins.txt /run/media/mmcblk0p1/steamapps/compatdata/22380/pfx/drive_c/users/steamuser/AppData/Local/falloutnv/
 	nvse_setup "$FALLOUTNV_EXTERNAL"
-	ln -sf "$INIFILES_EXTERNAL"/Fallout.ini "$INIFILES_VORTEX"/
-    ln -sf "$INIFILES_EXTERNAL"/FalloutPrefs.ini "$INIFILES_VORTEX"/
+	ln -sf "${INIFILES_EXTERNAL}Fallout.ini" "$INIFILES_VORTEX"
+    ln -sf "${INIFILES_EXTERNAL}FalloutPrefs.ini" "$INIFILES_VORTEX"
 	echo "Fallout NV found in the External drive. Creating Symlinks and swapping launchers."
 else
     echo "Fallout NV not found."
