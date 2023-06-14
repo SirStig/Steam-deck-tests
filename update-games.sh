@@ -3,8 +3,8 @@ set -euxo pipefail
 
 #Directoy References
 
-STEAMCOMMON=(find / -type d -name steamapps) + "/common/"
-STEAMCOMPAT=(find / -type d -name steamapps) + "/compatdata/"
+STEAMCOMMON=$(find / -type d -name steamapps) + "/common/"
+STEAMCOMPAT=$(find / -type d -name steamapps) + "/compatdata/"
 
 FALLOUT3_INTERNAL="$HOME/.steam/steam/steamapps/common/Fallout 3/"
 FALLOUT3_EXTERNAL="/run/media/mmcblk0p1/steamapps/common/Fallout 3/"
