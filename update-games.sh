@@ -2,10 +2,6 @@
 set -euxo pipefail
 
 #Directoy References
-
-STEAMCOMMON="$(find / -type d -name steamapps)/common/"
-STEAMCOMPAT="$(find / -type d -name steamapps)/compatdata/"
-
 FALLOUT3_INTERNAL="$HOME/.steam/steam/steamapps/common/Fallout 3/"
 FALLOUT3_EXTERNAL="/run/media/mmcblk0p1/steamapps/common/Fallout 3/"
 FALLOUTNV_INTERNAL="$HOME/.steam/steam/steamapps/common/Fallout New Vegas/"
@@ -193,9 +189,6 @@ elif [ -f "${OLDRIM_EXTERNAL}SkyrimLauncher.exe" ]; then
 else
     echo "Skyrim LE not found."
 fi
-
-echo $STEAMCOMMON
-echo $STEAMCOMPAT
 
 echo "Success! Exiting in 3..."
 sleep 20
