@@ -41,7 +41,7 @@ link_sub_targets(){
         [ "$foldername" != "openvr" ] && \
         [ "$foldername" != "Microsoft" ] && \
         [ -d "$TARGET" ]; then
-            ln -s "$TARGET" "$1/";
+            ln -sf "$TARGET" "$1/";
         fi;
     done;
 };
