@@ -12,7 +12,7 @@ Currently Tools:
 - Vortex Installer
 - Vortex Fixes for linux/steamdeck
 
-## install
+## Install
 
 1. Right click and save as [this install.desktop link](https://raw.githubusercontent.com/pikdum/steam-deck/master/install.desktop)
 2. Go to downloads folder and double click to run it
