@@ -36,12 +36,14 @@ link_sub_targets(){
     for TARGET in "${DIR_LS[@]}"; do
         foldername="$(basename "$TARGET")";
         checklink="$1/$foldername";
-        rmlink "$checklink";
         if [ "$foldername" != "Vortex" ] && \
         [ "$foldername" != "openvr" ] && \
         [ "$foldername" != "Microsoft" ] && \
         [ -d "$TARGET" ]; then
-            ln -sf "$TARGET" "$1/";
+            if [ ! -L "$checklink" ]; then
+               rm -dr "$checklink";
+               ln -sf "$TARGET" "$1/";
+            fi
         fi;
     done;
 };
@@ -131,7 +133,7 @@ for library in "${STEAM_LIBRARY_PATHS[@]}"; do
                         \"$CURRENT_PREFIX_PATH\"\
                     ";
                 else
-                    checkdir="${STEAM_LIBRARY_PATHS[0]}/steamapps/compatdata/$CURRENT_APPID/pfx/";
+                    checkdir="${STEAM_LIBRARY_PATHS[0]}/steamapps/compatdata/$CURRENT_APPID/pfx";
                     printf "%s\n%s\n" \
                     "INFO: Proton Prefix for \
                     $CURRENT_GAME not found at \"$checkdir\"." \
@@ -207,4 +209,4 @@ printf "%s\n" "DONE: Finished linking all detected Steam Library folders!";
 
 printf "Going to sleep in 3...";
 
-sleep 20
+sleep 3
