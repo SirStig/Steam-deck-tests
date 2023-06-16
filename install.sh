@@ -3,7 +3,7 @@ set -euxo pipefail
 
 VERSION=$(curl https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/version.txt)
 
-printf "Installing Pikdum's Tools Version: $VERSION";
+printf "Installing Pikdums Tools Version: ${VERSION}";
 
 mkdir -p ~/.local/share/applications/
 
