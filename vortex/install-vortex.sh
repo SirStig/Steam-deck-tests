@@ -8,6 +8,7 @@ DOTNET_URL="https://download.visualstudio.microsoft.com/download/pr/85473c45-8d9
 PROTON_BUILD="GE-Proton8-3"
 VORTEX_INSTALLER="vortex-setup-1.8.3.exe"
 
+printf "Attempting to install Vortex-Linux version: $VORTEX_LINUX";
 # install steam linux runtime sniper
 steam steam://install/1628350
 
