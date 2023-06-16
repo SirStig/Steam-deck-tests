@@ -7,6 +7,7 @@ printf "Installing Pikdum's Tools Version: $VERSION";
 
 mkdir -p ~/.local/share/applications/
 
+rm -dr ~/.pikdum
 mkdir -p ~/.pikdum
 cd ~/.pikdum
 wget -O steam-deck.zip https://github.com/SirStig/Steam-deck-tests/archive/refs/heads/main.zip
