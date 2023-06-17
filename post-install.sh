@@ -5,7 +5,7 @@ printf "Checking for shortcuts...";
 
 ln -sf ~/.pikdum/steam-deck-master/update.desktop ~/Desktop/pikdum-update.desktop
 
-if [ ! -f "$HOME/.local/share/applications/vortex.desktop" ]; || [ ! -f "$HOME/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe" ]; then
+if [ ! -f "$HOME/.local/share/applications/vortex.desktop" ] || [ ! -f "~/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe" ] then
     if [ -f "$HOME/.local/share/applications/vortex.desktop" ];
        rm -f $HOME/.local/share/applications/vortex.desktop
        rm -f ~/Desktop/vortex.desktop
@@ -25,3 +25,7 @@ if [ -L "~/Desktop/fallout3-post-deploy.desktop" ] || [ -L "~/Desktop/fallout4-p
 fi
 
 mkdir -p /run/media/mmcblk0p1/vortex-downloads || true
+
+printf "Done! Sleeping in 3...";
+
+sleep 3
