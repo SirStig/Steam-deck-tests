@@ -8,7 +8,7 @@
 
 A Collection of tools and scripts for linux/steam-deck. 
 
-Currently Tools:
+Current Tools:
 - Vortex Installer
 - Vortex Fixes for linux/steamdeck
 
