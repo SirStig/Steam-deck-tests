@@ -69,11 +69,16 @@ for library in "${STEAM_LIBRARY_PATHS[@]}"; do
             )";
             printf "%s\n" \
             "GOOD: Found $CURRENT_GAME";
-            while IFS= read -r line; do
-                if [ $line == $CURRENT_APPID ]; then
-                    printf "%s" "Test success! Witcher 3 is same as library ID found in loaderlibrary.json!";
-                fi
-            done < "~/.pikdum/steam-deck-master/vortex/loaderlibrary.json"
+            while read -r line; do
+                LOADERGAMEID=$(echo "$line" | cut -f2 -d '#' | cut -d ' ' -f1);
+                LOADERLAUNCHER=$(echo "$line" | cut -f2 -d '*' | cut -d ' ' -f1);
+                GAMELAUNCHER=$(echo "$line" | cut -f2 -d '=' | cut -d ' ' -f1);
+                if [ "$LOADERID" == "$CURRENT_APPID" ]; then
+                    printf "%s\n" "INFO:Discovered $CURRENT_GAME which uses $LOADERLAUNCHER to launch. Swapping .exe"
+                    mv "$CURRENT_INSTALL_PATH/$GAMELAUNCHER" "$CURRENT_INSTALL_PATH/_${GAMELAUNCHER}";
+                    cp "$CURRENT_INSTALL_PATH/$LOADERLAUNCHER" "$CURRENT_INSTALL_PATH/$GAMELAUNCHER";
+                fi;
+            done < ~/.pikdum/steam-deck-master/vortex/loaderlibrary.json;
         fi;
     done;
 done;
@@ -84,4 +89,4 @@ printf "%s\n" "DONE: Finished!";
 
 printf "Going to sleep in 3...";
 
-sleep 3
+sleep 20
