@@ -74,7 +74,7 @@ for library in "${STEAM_LIBRARY_PATHS[@]}"; do
                 LOADERLAUNCHER=$(echo "$line" | cut -f2 -d '*' | cut -d ' ' -f1);
                 GAMELAUNCHER=$(echo "$line" | cut -f2 -d '=' | cut -d ' ' -f1);
                 if [ "$LOADERGAMEID" == "$CURRENT_APPID" ]; then
-                    printf "%s\n" "INFO:Discovered $CURRENT_GAME which uses $LOADERLAUNCHER to launch. Swapping .exe";
+                    printf "%s\n" "INFO: Discovered $CURRENT_GAME which uses $LOADERLAUNCHER to launch. Swapping .exe";
                     mv "$CURRENT_INSTALL_PATH/$GAMELAUNCHER" "$CURRENT_INSTALL_PATH/_${GAMELAUNCHER}";
                     cp "$CURRENT_INSTALL_PATH/$LOADERLAUNCHER" "$CURRENT_INSTALL_PATH/$GAMELAUNCHER";
                 fi;
