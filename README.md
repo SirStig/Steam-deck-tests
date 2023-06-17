@@ -56,10 +56,24 @@ x-scheme-handler/nxm-protocol=vortex.desktop
 * Might need to reboot
 * If still issues, make sure your browser is using the default app
 
-### What is the "Update Vortex Game Library" desktop shortcut?
+### What is the "Update Vortex Game Library" & "Vortex Post Update" desktop shortcut?
 
+#### Update Vortex Game Library.desktop
 This find's all the games on your device and basically connects folders that are needed for mods to be properly deployed and run on the games.
 It also allows vortex to automatically find games installed on your device so you don't have to manually select the game folder.
+
+#### Vortex Post Update.desktop
+This find's all installed games and checks for any Script Extender launchers, if found it will automatically change the name of the script extenders
+.exe launcher to the same name as the games launcher and rename the games launcher to "_gamelauncher.exe".
+
+Example:
+
+SKSE64.exe and SkyrimSELauncher.exe
+
+SKSE64 will be renamed to SkyrimSELauncher.exe
+SkyrimSELauncher.exe will be renamed to _SkyrimSELauncher.exe
+
+This simple change allows you to launch the games from steam or steam gamemode in the Steam Deck's case.
 
 ## Uninstall
 
