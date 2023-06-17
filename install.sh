@@ -3,7 +3,7 @@ set -euxo pipefail
 
 VERSION=$(curl https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/version.txt)
 
-printf "Installing Pikdums Tools Version: ${VERSION}";
+printf "%s\n" "Installing Pikdums Tools Version: ${VERSION}";
 
 mkdir -p ~/.local/share/applications/
 
@@ -17,6 +17,6 @@ mv Steam-deck-tests-main steam-deck-master
 
 ~/.pikdum/steam-deck-master/post-install.sh
 
-printf "Success! Exiting in 3..."
+printf "%s\n" "Success! Exiting in 3..."
 sleep 20
 

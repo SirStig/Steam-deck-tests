@@ -8,7 +8,7 @@ DOTNET_URL="https://download.visualstudio.microsoft.com/download/pr/85473c45-8d9
 PROTON_BUILD="GE-Proton8-3"
 VORTEX_INSTALLER="vortex-setup-1.8.3.exe"
 
-printf "Attempting to install Vortex-Linux version: $VORTEX_LINUX";
+printf "%s\n" "Attempting to install Vortex-Linux version: $VORTEX_LINUX";
 # install steam linux runtime sniper
 steam steam://install/1628350
 
@@ -26,7 +26,7 @@ if [ -f "$HOME/.steam/steam/steamapps/common/SteamLinuxRuntime_sniper/run" ]; th
 elif [ -f "/run/media/mmcblk0p1/steamapps/common/SteamLinuxRuntime_sniper/run" ]; then
     STEAM_RUNTIME_PATH="/run/media/mmcblk0p1/steamapps/common/SteamLinuxRuntime_sniper"
 else
-    echo "SteamLinuxRuntime Sniper not found!"
+    printf "%s\n" "SteamLinuxRuntime Sniper not found!";
     sleep 3
     exit 1
 fi
@@ -58,5 +58,5 @@ ln -sf ~/.pikdum/steam-deck-master/vortex/vortex-post-updater.desktop ~/Desktop/
 
 mkdir -p /run/media/mmcblk0p1/vortex-downloads || true
 
-echo "Success! Exiting in 3..."
+printf "%s\n" "Success! Closing in 3..."
 sleep 3
