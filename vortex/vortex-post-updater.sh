@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 VORTEX_PREFIX=~/.vortex-linux/compatdata/pfx;
 printf "%s\n" "INFO: Searching for all script extender launchers!";
-printf "%s\n" "INFO: Using Vortex prefix at \"$VORTEX_PREFIX\"";
+printf "%s\n" "INFO: Updating loaderlibrary.json to the most recent version";
+curl -O https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/vortex/loaderlibrary.json
 rmlink(){
     if [ -h "$1" ];
     then unlink "$1";
