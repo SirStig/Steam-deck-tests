@@ -28,4 +28,4 @@ mkdir -p /run/media/mmcblk0p1/vortex-downloads || true
 
 printf "%s\n" "END: Done! Sleeping in 3...";
 
-sleep 20
+sleep 3

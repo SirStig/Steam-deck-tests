@@ -18,5 +18,5 @@ mv Steam-deck-tests-main steam-deck-master
 ~/.pikdum/steam-deck-master/post-install.sh
 
 printf "%s\n" "Success! Exiting in 3..."
-sleep 20
+sleep 3
 
