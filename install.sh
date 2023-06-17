@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -euxo pipefail
 
 VERSION=$(curl https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/version.txt)
 
