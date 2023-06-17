@@ -1,0 +1,39 @@
+"loaders"
+{
+	"0"
+	{
+		"appid"		"22300"
+		"launcher"		"Fallout3Launcher.exe"
+		"loader"		"fose_loader.exe"
+	}
+	"1"
+	{
+		"appid"		"22380"
+		"launcher"		"FalloutNVLauncher.exe"
+		"loader"		"nvse_loader.exe"
+	}
+	"2"
+	{
+		"appid"		"377160"
+		"launcher"		"Fallout4Launcher.exe"
+		"loader"		"f4se_loader.exe"
+	}
+	"3"
+	{
+		"appid"		"22330"
+		"launcher"		"OblivionLauncher.exe"
+		"loader"		"obse_loader.exe"
+	}
+	"4"
+	{
+		"appid"		"72850"
+		"launcher"		"SkyrimLauncher.exe"
+		"loader"		"skse_loader.exe"
+	}
+	"5"
+	{
+		"appid"		"489830"
+		"launcher"		"SkyrimSELauncher.exe"
+		"loader"		"skse64_loader.exe"
+	}
+}

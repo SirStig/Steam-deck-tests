@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 VORTEX_PREFIX=~/.vortex-linux/compatdata/pfx;
-printf "%s\n" "INFO: Searching for all script extender launchers!";
-printf "%s\n" "INFO: Updating loaderlibrary.json to the most recent version";
-rm -f ~/.pikdum/steam-deck-master/vortex/loaderlibrary.json
-wget -q https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/vortex/loaderlibrary.json -P ~/.pikdum/steam-deck-master/vortex/
+printf "%s\n" "UPDATE: Updating loaderlibrary.vdf to the most recent version";
+rm -f ~/.pikdum/steam-deck-master/vortex/loaderlibrary.vdf
+wget -q https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/vortex/loaderlibrary.vdf -P ~/.pikdum/steam-deck-master/vortex/
+printf "%s\n" "INFO: Searching for all supported launchers";
 rmlink(){
     if [ -h "$1" ];
     then unlink "$1";
@@ -71,16 +71,42 @@ for library in "${STEAM_LIBRARY_PATHS[@]}"; do
             )";
             printf "%s\n" \
             "GOOD: Found $CURRENT_GAME";
+            LOADERLIBRARY="~/.pikdum/steam-deck-master/vortex/loaderlibrary.json";
+            LOADERS=();
+            GAMELAUNCHERS=();
+            GAMELOADERS=();
+            GAMENAMES=();
             while read -r line; do
-                LOADERGAMEID=$(echo "$line" | cut -f2 -d '#' | cut -d ' ' -f1);
-                LOADERLAUNCHER=$(echo "$line" | cut -f2 -d '*' | cut -d ' ' -f1);
-                GAMELAUNCHER=$(echo "$line" | cut -f2 -d '=' | cut -d ' ' -f1);
+                LOADERGAMEID="$(manifest_attribute "$LOADERLIBRARY" "appid")";
+                LOADERLAUNCHER="$(manifest_attribute "$LOADERLIBRARY" "loader")";
+                GAMELAUNCHER="$(manifest_attribute "$LOADERLIBRARY" "launcher")";
                 if [ "$LOADERGAMEID" == "$CURRENT_APPID" ]; then
-                    printf "%s\n" "INFO: Discovered $CURRENT_GAME which uses $LOADERLAUNCHER to launch. Swapping .exe";
-                    mv "$CURRENT_INSTALL_PATH/$GAMELAUNCHER" "$CURRENT_INSTALL_PATH/_${GAMELAUNCHER}";
-                    cp "$CURRENT_INSTALL_PATH/$LOADERLAUNCHER" "$CURRENT_INSTALL_PATH/$GAMELAUNCHER";
+                    GAMEIDS+=("$LOADERGAMEID");
+                    GAMELAUNCHERS+=("$GAMELAUNCHER");
+                    GAMELOADERS+=("$LOADERLAUNCHER");
+                    GAMENAMES+=("$CURRENT_GAME");
+                    #printf "%s\n" "INFO: Discovered $CURRENT_GAME which uses $LOADERLAUNCHER to launch. Swapping .exe";
+                    #mv "$CURRENT_INSTALL_PATH/$GAMELAUNCHER" "$CURRENT_INSTALL_PATH/_${GAMELAUNCHER}";
+                    #cp "$CURRENT_INSTALL_PATH/$LOADERLAUNCHER" "$CURRENT_INSTALL_PATH/$GAMELAUNCHER";
                 fi;
-            done < ~/.pikdum/steam-deck-master/vortex/loaderlibrary.json;
+            done < $LOADERLIBRARY;
+            printf "%s\n" "INFO: Found these games that currently have Script Extenders:";
+            printf '%s\n' "${GAMENAMES[@]}" \
+            "%s\n" \ "Please type the name of the game you wish to rervert back to normal:";
+            t=false;
+            while [t == false]; do
+                read game;
+                for i in "${GAMENAMES[@]}"
+                if [ "$game" == "${GAMENAMES[$i]}" ]; then
+                    t=true;
+                    printf "%s\n" "SUCCESS: Reverting game back to Vanilla Launcher...";
+                    rm -f "${GAMELOADERS[$i]}";
+                    mv "$CURRENT_INSTALL_PATH/_${GAMELAUNCHERS[$i]}" "$CURRENT_INSTALL_PATH/${GAMELAUNCHERS[$i]}";
+                    break;
+                else
+                    printf "%s\n" "ERROR: That game is either not supported, or was typed in wrong please try again:";
+                fi;
+            done;
         fi;
     done;
 done;
