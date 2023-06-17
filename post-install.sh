@@ -6,12 +6,14 @@ printf "Checking for shortcuts...";
 ln -sf ~/.pikdum/steam-deck-master/update.desktop ~/Desktop/pikdum-update.desktop
 
 if [ ! -f "~/.local/share/applications/vortex.desktop" ] || [ ! -f "~/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe" ]; then
-    if [ -f "$HOME/.local/share/applications/vortex.desktop" ]; then
-       rm -f $HOME/.local/share/applications/vortex.desktop
+    if [ -f "~/.local/share/applications/vortex.desktop" ]; then
+       rm -f ~/.local/share/applications/vortex.desktop
        rm -f ~/Desktop/vortex.desktop
+       ln -s ~/.pikdum/steam-deck-master/vortex/install-vortex.desktop ~/Desktop/install-vortex.desktop || true
+       printf "Vortex not found, adding install-vortex.desktop to desktop.";
     fi
-    ln -s ~/.pikdum/steam-deck-master/vortex/install-vortex.desktop ~/Desktop/install-vortex.desktop || true
-    printf "Vortex not found. Creating install-vortex.desktop";
+    ln -s ~/.local/share/applications/vortex.desktop ~/Desktop
+    printf "Vortex shortcut not found, creating new one.";
 else
    ln -sf ~/.pikdum/steam-deck-master/vortex/vortex-post-updater.desktop ~/Desktop/
    ln -sf ~/.pikdum/steam-deck-master/vortex/update-vortex-library.desktop ~/Desktop/
@@ -28,4 +30,4 @@ mkdir -p /run/media/mmcblk0p1/vortex-downloads || true
 
 printf "Done! Sleeping in 3...";
 
-sleep 3
+sleep 20
