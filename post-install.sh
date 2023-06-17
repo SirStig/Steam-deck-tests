@@ -12,6 +12,9 @@ if [ ! -f "$HOME/.local/share/applications/vortex.desktop" ]; || [ ! -f "$HOME/.
     fi
     ln -s ~/.pikdum/steam-deck-master/vortex/install-vortex.desktop ~/Desktop/install-vortex.desktop || true
     printf "Vortex not found. Creating install-vortex.desktop";
+else
+   ln -sf ~/.pikdum/steam-deck-master/vortex/vortex-post-updater.desktop ~/Desktop/
+   ln -sf ~/.pikdum/steam-deck-master/vortex/update-vortex-library.desktop ~/Desktop/
 fi
 
 printf "Checking for old Pikdum's files..."
