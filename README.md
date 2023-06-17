@@ -35,7 +35,7 @@ This will:
 
 After modding, run games normally through game mode rather than launching through vortex
 
-####Currently supported games that have Script Extenders:
+#### Currently supported games that have Script Extenders:
 1. Skyrim Special Edition
 2. Skyrim Legendary Edition
 3. Oblivion
