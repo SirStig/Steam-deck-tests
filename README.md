@@ -67,15 +67,19 @@ x-scheme-handler/nxm-protocol=vortex.desktop
 * Might need to reboot
 * If still issues, make sure your browser is using the default app
 
-### What is the "Update Vortex Game Library" & "Vortex Post Update" desktop shortcut?
+### What are the "Update Vortex Game Library", "Swap to Vanilla Launcher" & "Use Script Extender Launchers" desktop shortcut?
 
 #### Update Vortex Game Library.desktop
 This find's all the games on your device and basically connects folders that are needed for mods to be properly deployed and run on the games.
 It also allows vortex to automatically find games installed on your device so you don't have to manually select the game folder.
 
-#### Vortex Post Update.desktop
+#### Use Script Extender Launchers.desktop
 This find's all installed games and checks for any Script Extender launchers, if found it will automatically change the name of the script extenders
 .exe launcher to the same name as the games launcher and rename the games launcher to "_gamelauncher.exe".
+
+#### Swap to Vanilla Launcher.desktop
+This will find all the currently installed games that we know of that have different launchers for running mods, list them out for you and allow you to switch the
+launcher back from the mod launcher to the normal vanilla one from the game.
 
 Example:
 
