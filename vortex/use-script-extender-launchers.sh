@@ -71,11 +71,13 @@ for library in "${STEAM_LIBRARY_PATHS[@]}"; do
             )";
             printf "%s\n" \
             "GOOD: Found $CURRENT_GAME";
-            LOADERLIBRARY="~/.pikdum/steam-deck-master/vortex/loaderlibrary.json";
+            LOADERLIBRARY="~/.pikdum/steam-deck-master/vortex/loaderlibrary.vdf";
+            ATTRIBUTE=0;
             while read -r line; do
-                LOADERGAMEID="$(manifest_attribute "$LOADERLIBRARY" "appid")";
-                LOADERLAUNCHER="$(manifest_attribute "$LOADERLIBRARY" "loader")";
-                GAMELAUNCHER="$(manifest_attribute "$LOADERLIBRARY" "launcher")";
+                LOADERGAMEID="$(manifest_attribute "$LOADERLIBRARY" "appid${ATTRIBUTE}")";
+                LOADERLAUNCHER="$(manifest_attribute "$LOADERLIBRARY" "loader${ATTRIBUTE}")";
+                GAMELAUNCHER="$(manifest_attribute "$LOADERLIBRARY" "launcher${ATTRIBUTE}")";
+                ATTRIBUTE+=1;
                 if [ "$LOADERGAMEID" == "$CURRENT_APPID" ]; then
                     printf "%s\n" "INFO: Discovered $CURRENT_GAME which uses $LOADERLAUNCHER to launch. Swapping .exe";
                     mv "$CURRENT_INSTALL_PATH/$GAMELAUNCHER" "$CURRENT_INSTALL_PATH/_${GAMELAUNCHER}";
