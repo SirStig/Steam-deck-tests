@@ -42,7 +42,7 @@ After modding, run games normally through game mode rather than launching throug
 4. Falllout 4
 5. Fallout 3
 6. Fallout New Vegas
-* You can add more by adding them in the same format as the other game to the loaderlibrary.json and creating a pull request.
+* You can add more by adding them in the same format as the other games to the loaderlibrary.json file and creating a pull request.
 
 ### Adding a game
 
