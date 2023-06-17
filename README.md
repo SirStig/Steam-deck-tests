@@ -8,13 +8,13 @@
 
 A Collection of tools and scripts for linux/steam-deck. 
 
-Currently Tools:
+Current Tools:
 - Vortex Installer
 - Vortex Fixes for linux/steamdeck
 
 ## Install
 
-1. Right click and save as [this install.desktop link](https://raw.githubusercontent.com/pikdum/steam-deck/master/install.desktop)
+1. Right click and save as [this install.desktop link](https://github.com/SirStig/Steam-deck-tests/releases/download/Testing/Install-pikdums-tools.desktop)
 2. Go to downloads folder and double click to run it
 
 ## Vortex Mod Manager
@@ -28,17 +28,28 @@ This will:
 2. Use ./vortex-linux to set up vortex
 3. Add a 'Update Vortex Game Library' shortcut to desktop
    * Needs to be run every time after you install a new game you want to mod.
-4. Map J: to internal games and K: to sd card games
+4. Add a 'Vortex Post Update' shortcut to desktop
+   *Needs to be run after installing a "Mod Loader" or "Script Extender" to a game. List of supported games below.
+5. Map J: to internal games and K: to sd card games
    * E: is the sd card root
 
 After modding, run games normally through game mode rather than launching through vortex
+
+#### Currently supported games that have Script Extenders:
+1. Skyrim Special Edition
+2. Skyrim Legendary Edition
+3. Oblivion
+4. Falllout 4
+5. Fallout 3
+6. Fallout New Vegas
+* You can add more by adding them in the same format as the other games to the loaderlibrary.json file and creating a pull request.
 
 ### Adding a game
 
 * Vortex will pop up some warnings about: staging location, deployment method
    * Walk through their fixes
    * Staging folder needs to be on the same drive as the game
-     * Suggested path works here
+     * Select the J:/ or E:/ drive which ever one has your game on it and create a vortex folder there for staging.
    * Deployment method should be hardlinks
 
 ### Download with vortex button link handler

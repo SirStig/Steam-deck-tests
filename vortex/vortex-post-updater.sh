@@ -2,7 +2,8 @@
 VORTEX_PREFIX=~/.vortex-linux/compatdata/pfx;
 printf "%s\n" "INFO: Searching for all script extender launchers!";
 printf "%s\n" "INFO: Updating loaderlibrary.json to the most recent version";
-curl -O https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/vortex/loaderlibrary.json
+rm -f ~/.pikdum/steam-deck-master/vortex/loaderlibrary.json
+wget -q https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/vortex/loaderlibrary.json -P ~/.pikdum/steam-deck-master/vortex/
 rmlink(){
     if [ -h "$1" ];
     then unlink "$1";
