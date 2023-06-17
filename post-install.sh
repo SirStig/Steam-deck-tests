@@ -5,8 +5,8 @@ printf "Checking for shortcuts...";
 
 ln -sf ~/.pikdum/steam-deck-master/update.desktop ~/Desktop/pikdum-update.desktop
 
-if [ ! -f "~/.local/share/applications/vortex.desktop" ]; || [ ! -f "~/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe" ]; then
-    if [ -f "$HOME/.local/share/applications/vortex.desktop" ];
+if [ ! -f "~/.local/share/applications/vortex.desktop" ] || [ ! -f "~/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe" ]; then
+    if [ -f "$HOME/.local/share/applications/vortex.desktop" ]; then
        rm -f $HOME/.local/share/applications/vortex.desktop
        rm -f ~/Desktop/vortex.desktop
     fi
