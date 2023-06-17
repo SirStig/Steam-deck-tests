@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+VORTEX_PREFIX=~/.vortex-linux/compatdata/pfx;
 printf "%s\n" "INFO: Searching for all script extender launchers!";
 rmlink(){
     if [ -h "$1" ];
