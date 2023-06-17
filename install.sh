@@ -5,7 +5,7 @@ mkdir -p ~/.local/share/applications/
 rm -r ~/.pikdum
 mkdir -p ~/.pikdum
 cd ~/.pikdum
-wget -Oq steam-deck.zip https://github.com/SirStig/Steam-deck-tests/archive/refs/heads/main.zip
+wget -O steam-deck.zip https://github.com/SirStig/Steam-deck-tests/archive/refs/heads/main.zip
 unzip -o steam-deck.zip
 rm steam-deck.zip
 mv Steam-deck-tests-main steam-deck-master
