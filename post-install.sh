@@ -5,14 +5,13 @@ printf "Checking for shortcuts...";
 
 ln -sf ~/.pikdum/steam-deck-master/update.desktop ~/Desktop/pikdum-update.desktop
 
-if [ ! -f "~/.local/share/applications/vortex.desktop" ] || [ ! -f "~/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe" ]; then
-    if [ -f "~/.local/share/applications/vortex.desktop" ]; then
-       rm -f ~/.local/share/applications/vortex.desktop
-       rm -f ~/Desktop/vortex.desktop
-       ln -s ~/.pikdum/steam-deck-master/vortex/install-vortex.desktop ~/Desktop/install-vortex.desktop || true
-       printf "Vortex not found, adding install-vortex.desktop to desktop.";
-    fi
-    ln -s ~/.local/share/applications/vortex.desktop ~/Desktop
+if [ -f "~/.local/share/applications/vortex.desktop" ] && [ ! -f "~/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe" ]; then
+   rm -f ~/.local/share/applications/vortex.desktop
+   rm -f ~/Desktop/vortex.desktop
+   ln -s ~/.pikdum/steam-deck-master/vortex/install-vortex.desktop ~/Desktop/install-vortex.desktop || true
+   printf "Vortex not found, adding install-vortex.desktop to desktop.";
+else if [ ! -f "~/.local/share/applications/vortex.desktop" ] && [ -f "~/.vortex-linux/compatdata/pfx/drive_c/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe" ]; then
+    ln -sf ~/.local/share/applications/vortex.desktop ~/Desktop
     printf "Vortex shortcut not found, creating new one.";
 else
    ln -sf ~/.pikdum/steam-deck-master/vortex/vortex-post-updater.desktop ~/Desktop/
