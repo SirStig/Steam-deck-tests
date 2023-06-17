@@ -14,7 +14,7 @@ Currently Tools:
 
 ## Install
 
-1. Right click and save as [this install.desktop link](https://raw.githubusercontent.com/pikdum/steam-deck/master/install.desktop)
+1. Right click and save as [this install.desktop link](https://github.com/SirStig/Steam-deck-tests/releases/download/Testing/Install-pikdums-tools.desktop)
 2. Go to downloads folder and double click to run it
 
 ## Vortex Mod Manager
