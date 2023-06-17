@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 VORTEX_PREFIX=~/.vortex-linux/compatdata/pfx;
+LOADERS=();
+GAMELAUNCHERS=();
+GAMELOADERS=();
+GAMENAMES=();
+INSTALLDIRECTORY=();
 printf "%s\n" "UPDATE: Updating loaderlibrary.vdf to the most recent version";
 rm -f ~/.pikdum/steam-deck-master/vortex/loaderlibrary.vdf
 wget -q https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/vortex/loaderlibrary.vdf -P ~/.pikdum/steam-deck-master/vortex/
@@ -71,45 +76,44 @@ for library in "${STEAM_LIBRARY_PATHS[@]}"; do
             )";
             printf "%s\n" \
             "GOOD: Found $CURRENT_GAME";
-            LOADERLIBRARY="~/.pikdum/steam-deck-master/vortex/loaderlibrary.vdf";
-            LOADERS=();
-            GAMELAUNCHERS=();
-            GAMELOADERS=();
-            GAMENAMES=();
+            LOADERLIBRARY=~/.pikdum/steam-deck-master/vortex/loaderlibrary.vdf;
+            declare -i ATTRIBUTE=0;
             while read -r line; do
-                ATTRIBUTE=0;
                 LOADERGAMEID="$(manifest_attribute "$LOADERLIBRARY" "appid${ATTRIBUTE}")";
                 LOADERLAUNCHER="$(manifest_attribute "$LOADERLIBRARY" "loader${ATTRIBUTE}")";
                 GAMELAUNCHER="$(manifest_attribute "$LOADERLIBRARY" "launcher${ATTRIBUTE}")";
+                ATTRIBUTE+=1;
                 if [ "$LOADERGAMEID" == "$CURRENT_APPID" ]; then
                     GAMEIDS+=("$LOADERGAMEID");
                     GAMELAUNCHERS+=("$GAMELAUNCHER");
                     GAMELOADERS+=("$LOADERLAUNCHER");
                     GAMENAMES+=("$CURRENT_GAME");
-                    ATTRIBUTE+=1;
+                    INSTALLDIRECTORY+=("$CURRENT_INSTALL_PATH");
                     #printf "%s\n" "INFO: Discovered $CURRENT_GAME which uses $LOADERLAUNCHER to launch. Swapping .exe";
                     #mv "$CURRENT_INSTALL_PATH/$GAMELAUNCHER" "$CURRENT_INSTALL_PATH/_${GAMELAUNCHER}";
                     #cp "$CURRENT_INSTALL_PATH/$LOADERLAUNCHER" "$CURRENT_INSTALL_PATH/$GAMELAUNCHER";
                 fi;
             done < $LOADERLIBRARY;
-            printf "%s\n" "INFO: Found these games that currently have Script Extenders:";
-            printf '%s\n' "${GAMENAMES[@]}" \
-            "%s\n" \ "Please type the name of the game you wish to rervert back to normal:";
-            t=false;
-            while [t == false]; do
-                read game;
-                for i in "${GAMENAMES[@]}"
-                if [ "$game" == "${GAMENAMES[$i]}" ]; then
-                    t=true;
-                    printf "%s\n" "SUCCESS: Reverting game back to Vanilla Launcher...";
-                    rm -f "${GAMELOADERS[$i]}";
-                    mv "$CURRENT_INSTALL_PATH/_${GAMELAUNCHERS[$i]}" "$CURRENT_INSTALL_PATH/${GAMELAUNCHERS[$i]}";
-                    break;
-                else
-                    printf "%s\n" "ERROR: That game is either not supported, or was typed in wrong please try again:";
-                fi;
-            done;
         fi;
+    done;
+    printf "%s\n" "INFO: Found these games that currently have Script Extenders:";
+    printf "%s\n" "LIST: Game ID:${GAMEIDS[@]}  Name:${GAMENAMES[@]}";
+    printf "%s\n" "RESPONSE: Please enter the Game ID for the game you wish to rervert back to normal:";
+    input="false";
+    while [ "$input" == "false" ]; do
+    read game;
+    for i in "${!GAMEIDS[@]}"; do
+    if [ "$game" == "${GAMEIDS[$i]}" ]; then
+        input="true";
+        printf "%s\n" "SUCCESS: Reverting game back to Vanilla Launcher...";
+        rm -f "${INSTALLDIRECTORY[$i]}/${GAMELAUNCHERS[$i]}";
+        mv "${INSTALLDIRECTORY[$i]}/_${GAMELAUNCHERS[$i]}" "${INSTALLDIRECTORY[$i]}/${GAMELAUNCHERS[$i]}";
+        break;
+    else
+        printf "%s\n" "ERROR: That game is either not supported, or was typed in wrong please try again:";
+    fi;
+    done;
+
     done;
 done;
 
@@ -119,4 +123,4 @@ printf "%s\n" "DONE: Finished!";
 
 printf "Going to sleep in 3...";
 
-sleep 3
+sleep 20
