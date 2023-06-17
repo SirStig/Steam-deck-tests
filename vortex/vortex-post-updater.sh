@@ -57,12 +57,6 @@ for library in "${STEAM_LIBRARY_PATHS[@]}"; do
         CURRENT_APPID="$(manifest_attribute "$CURRENT_APPMANIFEST" "appid")";
         CURRENT_GAME="$(manifest_attribute "$CURRENT_APPMANIFEST" "name")";
         CURRENT_INSTALLDIR="$(manifest_attribute "$CURRENT_APPMANIFEST" "installdir")";
-        printf "%s\n" \
-        "INFO: \
-        CURRENT_APPID=\"$CURRENT_APPID\" \
-        CURRENT_GAME=\"$CURRENT_GAME\" \
-        CURRENT_INSTALLDIR=\"$CURRENT_INSTALLDIR\"\
-        ";
         checkdir="$(\
             printf "%s" "$CURRENT_APPMANIFEST" | \
             sed "s/\/steamapps\/.\+/\/steamapps\/common\//"\
@@ -74,7 +68,12 @@ for library in "${STEAM_LIBRARY_PATHS[@]}"; do
                 sed "s/\/steamapps\/.\+/\/steamapps\/compatdata\/$CURRENT_APPID\/pfx/"\
             )";
             printf "%s\n" \
-            "GOOD: Found $CURRENT_GAME installation at \"$CURRENT_INSTALL_PATH\"";
+            "GOOD: Found $CURRENT_GAME";
+            while IFS= read -r line; do
+                if [ $line == $CURRENT_APPID ]; then
+                    printf "%s" "Test success! Witcher 3 is same as library ID found in loaderlibrary.json!";
+                fi
+            done < "~/.pikdum/steam-deck-master/vortex/loaderlibrary.json"
         fi;
     done;
 done;
