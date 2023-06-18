@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/SirStig/Steam-deck-tests/compare/v1.0.0...v1.1.0) (2023-06-18)
+
+
+### Features
+
+* Added a update checker to vortex-tools.sh ([65984ee](https://github.com/SirStig/Steam-deck-tests/commit/65984eed0a3636644a14fa4b297ee9bf3df3404d))
+
+
+### Bug Fixes
+
+* test ([67b4490](https://github.com/SirStig/Steam-deck-tests/commit/67b44907eab8eb7e492b96686a89e2fd1f9ca711))
+
 ## 1.0.0 (2023-06-18)
 
 
