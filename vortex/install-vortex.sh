@@ -39,13 +39,13 @@ fi
 
 cd ~/.vortex-linux/compatdata/pfx/dosdevices
 
-if [ -d "$HOME/.steam/steam/steamapps/common/" ]; then
-    ln -s "$HOME/.steam/steam/steamapps/common/" j: || true
-fi
-
-if [ -d "/run/media/mmcblk0p1/steamapps/common/" ]; then
-    ln -s "/run/media/mmcblk0p1/steamapps/common/" k: || true
-fi
+#if [ -d "$HOME/.steam/steam/steamapps/common/" ]; then
+#    ln -s "$HOME/.steam/steam/steamapps/common/" j: || true
+#fi
+#
+#if [ -d "/run/media/mmcblk0p1/steamapps/common/" ]; then
+#    ln -s "/run/media/mmcblk0p1/steamapps/common/" k: || true
+#fi
 
 update-desktop-database || true
 
