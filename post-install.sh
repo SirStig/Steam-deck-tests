@@ -27,6 +27,10 @@ fi
 
 mkdir -p /run/media/mmcblk0p1/vortex-downloads || true
 
+printf "%s\n" "INFO: Updating Vortex Game Library";
+
+~/.pikdum/steam-deck-master/vortex/update-vortex-library.sh
+
 printf "%s\n" "END: Done! Sleeping in 3...";
 
 sleep 3
