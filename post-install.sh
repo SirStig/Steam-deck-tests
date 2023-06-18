@@ -12,9 +12,7 @@ elif [ ! -f "~/.local/share/applications/vortex.desktop" ] && [ -f "~/.vortex-li
     ln -sf ~/.local/share/applications/vortex.desktop ~/Desktop/
     printf "%s\n" "FIX: Vortex shortcut not found, creating new one.";
 else
-   ln -sf ~/.pikdum/steam-deck-master/vortex/update-vortex-library.desktop ~/Desktop/
-   ln -sf ~/.pikdum/steam-deck-master/vortex/use-script-extender-launchers.desktop ~/Desktop/
-   ln -sf ~/.pikdum/steam-deck-master/vortex/swap-to-vanilla-launcher.desktop ~/Desktop/
+   ln -sf ~/.pikdum/steam-deck-master/vortex/vortex-tools.desktop ~/Desktop/
    printf "%s\n" "SUCCESS: Found all shrotcuts!";
 fi
 

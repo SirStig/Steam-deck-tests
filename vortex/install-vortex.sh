@@ -51,9 +51,7 @@ update-desktop-database || true
 
 rm -f ~/Desktop/install-vortex.desktop
 ln -sf ~/.local/share/applications/vortex.desktop ~/Desktop/
-ln -sf ~/.pikdum/steam-deck-master/vortex/update-vortex-library.desktop ~/Desktop/
-ln -sf ~/.pikdum/steam-deck-master/vortex/use-script-extender-launchers.desktop ~/Desktop/
-ln -sf ~/.pikdum/steam-deck-master/vortex/swap-to-vanilla-launcher.desktop ~/Desktop/
+ln -sf ~/.pikdum/steam-deck-master/vortex/vortex-tools.desktop ~/Desktop/
 
 mkdir -p /run/media/mmcblk0p1/vortex-downloads || true
 
