@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 printf "%s\n" "INFO: Running Pikdum's Tools for Vortex"
+printf "%s\n" "INFO: Checking for updates"
+PIKDUMSVERSION=$(cut -d "#" -c 1-5 $(curl https://raw.githubusercontent.com/SirStig/Steam-deck-tests/main/CHANGELOG.md));
+if []; then
+else
+fi
 printf "%s\n" "INFO: Please select a tool from below by typing 1, 2, or 3:"
 printf "%s\n" " 1: Update Vortex Game Library (Creates Symlinks for all found games for vortex)"
 printf "%s\n" " 2: Use Script Extender Launchers (Swaps all default game launchers for the script extender launchers.)"
